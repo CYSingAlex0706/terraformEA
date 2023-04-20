@@ -1,8 +1,8 @@
 /*
 ## Apply the configuration in main.tf before uncommenting and applying the configuration in this file.
 
-resource "kubernetes_manifest" "eks_proxy_defaults" {
-  provider = kubernetes.eks
+resource "kubernetes_manifest" "gke_proxy_defaults" {
+  provider = kubernetes.gke
   manifest = {
     "apiVersion" = "consul.hashicorp.com/v1alpha1"
     "kind"       = "ProxyDefaults"

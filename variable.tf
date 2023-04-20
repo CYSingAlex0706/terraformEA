@@ -20,13 +20,13 @@ variable "project_id" {
 }
 
 variable "credentials_path" {
-  type = string
-  default = "./absolute-vertex-356001-eefd35493036.json"
+  type    = string
+  default = "absolute-vertex-356001-d6e6c4ffa61f.json"
 }
 
 variable "region" {
   description = "region"
-  default = "asia-east2"
+  default     = "asia-east2"
 }
 
 

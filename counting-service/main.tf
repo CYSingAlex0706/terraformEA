@@ -69,36 +69,36 @@ resource "kubernetes_service" "counting" {
   }
 }
 
-# EKS resources 
+# gke resources 
 
-data "terraform_remote_state" "eks" {
+data "terraform_remote_state" "gke" {
   backend = "local"
   config = {
-    path = "../eks/terraform.tfstate"
+    path = "../gke/terraform.tfstate"
   }
 }
 
-provider "aws" {
-  region = data.terraform_remote_state.eks.outputs.region
+provider "gcp" {
+  region = data.terraform_remote_state.gke.outputs.region
 }
 
-data "aws_eks_cluster" "cluster" {
-  name = data.terraform_remote_state.eks.outputs.cluster_id
+data "gcp_gke_cluster" "cluster" {
+  name = data.terraform_remote_state.gke.outputs.cluster_id
 }
 
 provider "kubernetes" {
-  alias                  = "eks"
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+  alias                  = "gke"
+  host                   = data.gcp_gke_cluster.cluster.endpoint
+  cluster_ca_certificate = base64decode(data.gcp_gke_cluster.cluster.certificate_authority.0.data)
   exec {
     api_version = "client.authentication.k8s.io/v1alpha1"
-    args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.cluster.name]
-    command     = "aws"
+    args        = ["gke", "get-token", "--cluster-name", data.gcp_gke_cluster.cluster.name]
+    command     = "gcp"
   }
 }
 
 resource "kubernetes_pod" "dashboard" {
-  provider = kubernetes.eks
+  provider = kubernetes.gke
 
   metadata {
     name = "dashboard"
@@ -129,7 +129,7 @@ resource "kubernetes_pod" "dashboard" {
 }
 
 resource "kubernetes_service" "dashboard" {
-  provider = kubernetes.eks
+  provider = kubernetes.gke
 
   metadata {
     name      = "dashboard-service-load-balancer"

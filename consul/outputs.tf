@@ -1,6 +1,6 @@
 output "region" {
-  description = "AWS region"
-  value       = "ap-east-1"
+  description = "GCP region"
+  value       = "module"
 }
 
 output "kuberneteclustername" {
@@ -8,6 +8,6 @@ output "kuberneteclustername" {
 }
 
 output "cluster_id" {
-  description = "EKS cluster ID."
-  value       = "education-eks-EjLutf9m"
+  description = "GKE cluster ID."
+  value       = "education-gke-EjLutf9m"
 }

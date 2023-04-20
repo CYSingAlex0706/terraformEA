@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "absolute-vertex-356001",
+  "private_key_id": "d6e6c4ffa61f74d7571e2742644a02d4873a25e6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCynXGdkWFKZ1Sb\npelbfHnX/8gJZGED+6ArWqr22qEhiSFDy0zSL58a8lw9nDjceW6WIPrzr3ynv7WB\njJ5vb7fQPwdV7me8Tn7tm/YCYS3i0Txm1+IANgZpVAI1H2sBzb+wibfYJ27iRGO6\n2Wtq0+WmB01ICP9NW56+JZknXueTESN4XUUQ2pdgGgeb7qDvFSaN/lpl7Lfbj5ht\nPshQ6tei4BJF0VB6bN50NNrx9DhvGoQiwFGXCp3sMo6WHnakWOhOfKe3rLvMFfvj\ngmw7FMItMUuXTuCJjkbOQqJpoXYuVpQ5JP0G4y9TBUjPuqz0mCF5omNmUn5NmkEG\n5g1S+hSVAgMBAAECggEACEjnl19CFoE9ekITVWQsLfnWGE1uIeZUKGlPtccv+Hi+\nW2vSIouv7cA2dBXLc2U0h8Um2WfB40av+hQrgyVjmXFa+0A60pAHhijuRm+l1mKj\nJ8K1X7zMcP/ttvNqng5M6Q4yQgCY6D4zgVwKsKKnK8YkmQXwevDtfN9h6mLAtgsI\n32lZNkI2IBjft1UJS6hUojC7LFgX95e3OW2F4GXPHq/z3BUZp07EJ04lMZhEfMn/\nM5xbhNjd26Fze8hQtHlB9q+Q5Xq3lljgR7eGn0IVqbA+AxEQWYrHAxmL9mA2X5Ie\nolZkLbAhfRzXHYf51zFq6Q5EfwXPQvLKD0K7sJzHAQKBgQD7FDeelBFPUvRJCUCv\nwnBtT+UOM5YHq+6s/glYGQW2C4VcUJ9bxY01XsAla15CNZYU2j0TjJRqpWhzkNMn\n/agogugNt2XAG3Ei7fHJCJz/KS1jAdAG1uIMwmCHG/r2q6xjkvd37rMO00rYW92y\n+7kZqPwDcwtDlHqYPuoyPFE3gQKBgQC2HaPvQRy8AO+xq7K7SddpH8dakCG/MFCi\nzQDrKkO+1dJj/EXIYAFvHBVvC6YjYyYkgVMomtu0Uooe2MoUhLLft7BtgOueP3Y8\n28++AoEBB/s7RXFQFNteXhYXGV26sJc5cG6v4hTwSxgcAnlN+gAataTaxIbxOURK\nzpHubcwHFQKBgCvATiDX9Fw6PE8tyZPW8fhaX7Ol0ZLspt6GNeKgGZqrT0XS1rIL\nLpwKMrlSiE5JQCnKDbKGYKZkxFq+9cyWKuNETGN3fceIAKLxi5xYX+Mmrb3+5t0K\nPMG0bVWdzpGFQLjpNy4y7gi7UON6vpsduhd6ls+TEHdqPCKjc/PlBtIBAoGBAKFn\nBZqPB4tr/QNnG6G3oO0vV/xgjzgl9uFCdVT2gVIJqUwqEiKzS7IQnsJq/ZSRVAW4\nhF4RWTSojncmRXsH3Iw//WIfhzMaJY1sduJ8z559V2DBe9qwkXdCRau1NIe36F7k\n0YSaB1qsAzMX0jCUqDED2ZZ15O63hVoTV+yLbO69AoGBANZjSvtr0WNHhfx7bjBR\nxo9GRsPW+lgj+fJ8fjOl3AjkYQIcPnZ9/uBQY7LgFW22jAnUkFYqp5+NoE2omVp9\nY8ofrIyj/jj9QTZCBMii6I4wNZTCc4MErOl92ddMd+wfB4zw+ZYJN2kmQudLX2Un\nCABJaw6FWFU3ypha90AzQbuQ\n-----END PRIVATE KEY-----\n",
+  "client_email": "terrafrom-admin@absolute-vertex-356001.iam.gserviceaccount.com",
+  "client_id": "111323260236104574960",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terrafrom-admin%40absolute-vertex-356001.iam.gserviceaccount.com"
+}

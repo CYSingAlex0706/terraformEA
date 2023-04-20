@@ -1,30 +1,30 @@
-## EKS Resources
+## gke Resources
 
-data "terraform_remote_state" "eks" {
+data "terraform_remote_state" "gke" {
   backend = "local"
   config = {
-    path = "../aws/terraform.tfstate"
+    path = "../GCP/terraform.tfstate"
   }
 }
 
-provider "aws" {
-  region = "ap-east-1"
+provider "gcp" {
+  region = "asia-east2"
 }
 
 
-data "aws_eks_cluster" "cluster" {
-  depends_on = [module.eks.cluster_id]
-  name = "education-eks-EjLutf9m"
+data "gcp_gke_cluster" "cluster" {
+  depends_on = [module.gke.cluster_id]
+  name = "education-gke-EjLutf9m"
 }
 
 provider "kubernetes" {
-  alias                  = "eks"
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+  alias                  = "gke"
+  host                   = data.gcp_gke_cluster.cluster.endpoint
+  cluster_ca_certificate = base64decode(data.gcp_gke_cluster.cluster.certificate_authority.0.data)
   exec {
     api_version = "client.authentication.k8s.io/v1alpha1"
-    args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.cluster.name]
-    command     = "aws"
+    args        = ["gke", "get-token", "--cluster-name", data.gcp_gke_cluster.cluster.name]
+    command     = "gcp"
   }
 
   experiments {
@@ -34,20 +34,20 @@ provider "kubernetes" {
 
 
 provider "helm" {
-  alias = "eks"
+  alias = "gke"
   kubernetes {
-    host                   = data.aws_eks_cluster.cluster.endpoint
-    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+    host                   = data.gcp_gke_cluster.cluster.endpoint
+    cluster_ca_certificate = base64decode(data.gcp_gke_cluster.cluster.certificate_authority.0.data)
     exec {
       api_version = "client.authentication.k8s.io/v1alpha1"
-      args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.cluster.name]
-      command     = "aws"
+      args        = ["gke", "get-token", "--cluster-name", data.gcp_gke_cluster.cluster.name]
+      command     = "gcp"
     }
   }
 }
   
 resource "helm_release" "consul_dc1" {
-  provider   = helm.eks
+  provider   = helm.gke
   name       = "consul"
   repository = "https://helm.releases.hashicorp.com"
   chart      = "consul"
@@ -58,8 +58,8 @@ resource "helm_release" "consul_dc1" {
   ]
 }
 
-data "kubernetes_secret" "eks_federation_secret" {
-  provider = kubernetes.eks
+data "kubernetes_secret" "gke_federation_secret" {
+  provider = kubernetes.gke
   metadata {
     name = "consul-federation"
   }
@@ -114,7 +114,7 @@ resource "kubernetes_secret" "aks_federation_secret" {
     name = "consul-federation"
   }
 
-  data = data.kubernetes_secret.eks_federation_secret.data
+  data = data.kubernetes_secret.gke_federation_secret.data
 }
 
 
